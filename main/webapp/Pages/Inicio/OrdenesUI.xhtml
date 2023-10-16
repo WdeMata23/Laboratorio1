@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <h:outputScript name="script.js" library="js"/>
+        <h:outputStylesheet name="default.css" library="css"/>
+        <h:outputStylesheet name="theme.css" library="css"/>
+        <title>Ordenes</title>
+    </h:head>
+
+    <h:body>
+        <div style="align-items: center">
+            <h:form>
+                <br></br>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Id cliente"/>
+                    <p:inputText id="txtCliente" value="#{bkn_orden.cliente}"/>
+                    <p:outputLabel value="total"/>
+                    <p:inputText id="txttotal" value="#{bkn_orden.total}"/>
+                    <p:commandButton id="btnRegreso" value="Pagina Principal" action="#{bkn_Inicio.VentanaPrincipal()}"/>
+                    <p:commandButton id="btnInicio" value="Agregar orden" action="#{bkn_orden.EnviarOrden()}"/> 
+                   
+                </p:panelGrid>
+                <table class="table table-bordered" onclick="event.stopPropagation();">
+                    <thead>
+                        <tr>
+                            <th>Id orden</th>
+                            <th>Id Cliente</th>
+                            <th>fecha</th>
+                            <th>total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{bkn_orden.lista}" var="item">
+                            <tr>
+                                <td>#{item.idOrden}</td>
+                                <td>#{item.clienteId}</td>
+                                <td>#{item.fecha}</td>
+                                <td>#{item.total}</td>
+
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+            </h:form>   
+        </div>
+    </h:body>
+</html>

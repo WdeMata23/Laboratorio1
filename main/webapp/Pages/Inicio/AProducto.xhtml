@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <h:outputScript name="script.js" library="js"/>
+        <h:outputStylesheet name="default.css" library="css"/>
+        <h:outputStylesheet name="theme.css" library="css"/>
+        <title>Actualizar productos</title>
+    </h:head>
+
+    <h:body>
+        <div style="align-items: center">
+            <h:form>
+                           <p:panelGrid columns="1" style=" margin:auto">
+        <h2>ACTUALIZACION DE CLIENTES</h2>
+       <h2>UNIVERSIDAD MARIANO GALVEZ DE GUATEMALA</h2>
+        </p:panelGrid>
+              <p:panelGrid columns="1" style="float:right;">
+    <img src="https://img.myloview.es/posters/supermercado-comestibles-productos-dibujos-animados-700-144895932.jpg" width="400"/>
+              </p:panelGrid >
+                    <br></br>
+                <p:panelGrid columns="2">
+                     <p:outputLabel value="Id Producto"/>
+                     <p:inputText id="txtID" value="#{bkn_producto.idp}"/>
+                    <p:outputLabel value="Nombre Producto"/>
+                    <p:inputText id="txtNombre" value="#{bkn_producto.nombreProducto}"/>
+                    <p:outputLabel value="Descripcion producto"/>
+                    <p:inputText id="txtdesproducto" value="#{bkn_producto.descripcion}"/>
+                    <p:outputLabel value="Precio"/>
+                    <p:inputText id="txtprecio" value="#{bkn_producto.precio}"/>
+                    <p:outputLabel value="Cantidad"/>
+                    <p:inputText id="txtcantidad" value="#{bkn_producto.cantidad}"/>
+                    <p:commandButton id="btnRegreso" value="Regresar" action="#{bkn_Inicio.VentanaProducto()}"/> 
+                    <p:commandButton id="btnInicio" value="Actualizar" action="#{bkn_producto.EnviarProductos()}"/> 
+                </p:panelGrid>
+                       <p:dataTable id="tabla" var="product" value="#{bkn_producto.lista}">
+                        <p:column headerText="Id" style="text-align: center">
+                            <h:outputText value="#{product.idProducto}" />
+                        </p:column>
+                        <p:column headerText="Nombre" style="text-align: center">
+                            <h:outputText value="#{product.nombreProducto}" />
+                        </p:column>
+                        <p:column headerText="Descripcion" style="text-align: center">
+                            <h:outputText value="#{product.descripcionProducto}" />
+                        </p:column>
+                        <p:column headerText="Precio" style="text-align: center">
+                            <h:outputText value="#{product.precio}" />
+                        </p:column>
+                        <p:column headerText="Cantidad" style="text-align: center">
+                            <h:outputText value="#{product.cantidad}" />
+                        </p:column>
+                    </p:dataTable>
+                    
+            </h:form>   
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <h:outputScript name="script.js" library="js"/>
+        <h:outputStylesheet name="default.css" library="css"/>
+        <h:outputStylesheet name="theme.css" library="css"/>
+        <title>Productos</title>
+    </h:head>
+    <h:body>
+        <div style="align-items: center">
+            <h:form>
+                           <p:panelGrid columns="1" style=" margin:auto">
+        <h2>INGRESO DE PRODUCTOS</h2>
+       <h2>UNIVERSIDAD MARIANO GALVEZ DE GUATEMALA</h2>
+        </p:panelGrid>
+              <p:panelGrid columns="1" style="float:right;">
+          <img src="https://img.freepik.com/vector-premium/supermercado-comestibles-productos-dibujos-animados_24640-26644.jpg" width="400"/>
+              </p:panelGrid >
+                    <br></br>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre Producto"/>
+                    <p:inputText id="txtNombre" value="#{bkn_producto.nombreProducto}"/>
+                    <p:outputLabel value="Descripcion producto"/>
+                    <p:inputText id="txtdesproducto" value="#{bkn_producto.descripcion}"/>
+                    <p:outputLabel value="Precio"/>
+                    <p:inputText id="txtprecio" value="#{bkn_producto.precio}"/>
+                    <p:outputLabel value="Cantidad"/>
+                    <p:inputText id="txtcantidad" value="#{bkn_producto.cantidad}"/>
+                </p:panelGrid>
+                <p:panelGrid columns="3">
+                    <p:commandButton id="btnRegreso" value="Pagina Principal" action="#{bkn_Inicio.VentanaPrincipal()}"/> 
+                    <p:commandButton id="btnInicio" value="Agregar producto" action="#{bkn_producto.EnviarProductos()}"/> 
+                    <p:commandButton id="btnActualizzar" value="Actualizar Producto" action="#{bkn_producto.VentanaProductoAC()}"/>  
+                </p:panelGrid>
+            </h:form>   
+        </div>
+    </h:body>
+</html>
